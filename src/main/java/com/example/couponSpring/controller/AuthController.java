@@ -23,6 +23,7 @@ import java.util.Map;
 @RestController
 @RequestMapping("api/auth")
 @RequiredArgsConstructor
+@CrossOrigin(origins = "*")
 public class AuthController {
     private final JWTUtil jwtUtil;
     private final AuthenticationManager authManager;
@@ -57,6 +58,10 @@ public class AuthController {
                 customerService.setCustomer(customerRepository.findByEmail(jwtUtil.extractUsername(jwt))
                         .orElseThrow(()-> new SystemException(ErrorMessage.CUSTOMER_NOT_EXISTS)));
         }
-        return Collections.singletonMap("jwt-token", jwt);
+        Map<String, Object> map = new HashMap<>();
+        map.put("jwt_token", jwt);
+        map.put("username", loginParams.getEmail());
+        map.put("clientType", loginParams.getClientType());
+        return map;
     }
 }

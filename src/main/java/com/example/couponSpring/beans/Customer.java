@@ -6,8 +6,10 @@ import org.hibernate.annotations.Cascade;
 import org.springframework.context.annotation.Scope;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+import java.util.*;
 
 @Entity
 @Table(name = "customers")
@@ -19,19 +21,24 @@ public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    @NotNull
     private String firstName;
+    @NotNull
     private String lastName;
+    @Email
     private String email;
+    @Size(min = 4, max = 20)
     private String password;
 
-    @ManyToMany(cascade = CascadeType.PERSIST)
+    @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(
     name = "customers_vs_coupons",
     joinColumns = @JoinColumn(name = "customer_id"),
     inverseJoinColumns = @JoinColumn(name = "coupon_id"))
     @Singular
-    @ToString.Exclude
+    @EqualsAndHashCode.Exclude
     @JsonIgnore
-    private List<Coupon> coupons = new ArrayList<>();
+    private Set<Coupon> coupons = new HashSet<>();
 
 }
+

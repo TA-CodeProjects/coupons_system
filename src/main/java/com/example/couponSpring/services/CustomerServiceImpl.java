@@ -13,6 +13,7 @@ import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.sql.Date;
 import java.time.LocalDate;
@@ -22,7 +23,7 @@ import java.util.List;
 
 @Service
 @NoArgsConstructor
-public class CustomerServiceImpl extends ClientService implements CustomerService{
+public class CustomerServiceImpl extends ClientService implements CustomerService {
 
     private Customer customer;
 
@@ -36,26 +37,23 @@ public class CustomerServiceImpl extends ClientService implements CustomerServic
     }
 
     @Override
-    public boolean login(String email, String password) {
-        return customerRepository.existsByEmailAndPassword(email, password);
-    }
-
-    @Override
     public void purchaseCoupon(Coupon coupon) throws SystemException {
-        if (customerRepository.existsByCustomerAndCoupon(customer.getId(), coupon.getId())){
+        if (customerRepository.existsByCustomerAndCoupon(customer.getId(), coupon.getId())) {
             throw new SystemException(ErrorMessage.CUSTOMER_ALREADY_HAVE_COUPON);
         }
-        if (coupon.getAmount() == 0){
+        if (coupon.getAmount() == 0) {
             throw new SystemException(ErrorMessage.NO_COUPON_LEFT);
         }
-        if (coupon.getEndDate().before(Date.valueOf(LocalDate.now()))){
+        if (coupon.getEndDate().before(Date.valueOf(LocalDate.now()))) {
             throw new SystemException(ErrorMessage.COUPON_IS_DATE_EXPIRED);
         }
-//        customer = customerRepository.getById(customer.getId());
-        customer.getCoupons().add(coupon);
-        customerRepository.saveAndFlush(customer);
-        coupon.setAmount(coupon.getAmount() - 1);
-        couponRepository.saveAndFlush(coupon);
+        Coupon couponToUpdate = couponRepository.getById(coupon.getId());
+        Customer customerToUpdate = customerRepository.getById(customer.getId());
+        couponToUpdate.setAmount(couponToUpdate.getAmount() - 1);
+        couponRepository.saveAndFlush(couponToUpdate);
+        customerToUpdate.getCoupons().add(couponToUpdate);
+        customerRepository.saveAndFlush(customerToUpdate);
+
 
     }
 

@@ -19,6 +19,8 @@ public enum ErrorMessage {
     COUPON_IS_DATE_EXPIRED("The coupon date is expired");
 
 
+
+
     private String message;
 
     ErrorMessage(String message) {

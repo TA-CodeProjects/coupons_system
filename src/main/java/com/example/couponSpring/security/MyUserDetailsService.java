@@ -55,6 +55,9 @@ public class MyUserDetailsService implements UserDetailsService {
                         () -> new UsernameNotFoundException(format("Customer: %s, not found", finalUsernamePart1)));
                 return new User(customer.getEmail(), customer.getPassword(), Collections.singleton(new SimpleGrantedAuthority("ROLE_CUSTOMER")));
             default:
+                if (!usernamePart.equals(ADMIN_EMAIL)){
+                    throw new UsernameNotFoundException(format("Admin: %s, not found", usernamePart));
+                }
                 return new User(ADMIN_EMAIL, ADMIN_PASSWORD, Collections.singleton(new SimpleGrantedAuthority("ROLE_ADMIN")));
         }
     }

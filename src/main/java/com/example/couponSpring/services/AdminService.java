@@ -10,7 +10,7 @@ public interface  AdminService {
 
     boolean login(String email, String password);
 
-    void addCompany(Company company) throws SystemException;
+    Company addCompany(Company company) throws SystemException;
 
     void updateCompany(Company company) throws SystemException;
 
@@ -20,7 +20,7 @@ public interface  AdminService {
 
     Company getOneCompany(int companyId) throws SystemException;
 
-    void addCustomer(Customer customer) throws SystemException;
+    Customer addCustomer(Customer customer) throws SystemException;
 
     void updateCustomer(Customer customer) throws SystemException;
 

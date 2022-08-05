@@ -23,14 +23,14 @@ public class AdminServiceImpl extends ClientService implements AdminService {
     }
 
     @Override
-    public void addCompany(Company company) throws SystemException {
+    public Company addCompany(Company company) throws SystemException {
         if (companyRepository.existsByName(company.getName())) {
             throw new SystemException(ErrorMessage.NAME_ALREADY_EXISTS);
         }
         if (companyRepository.existsByEmail(company.getEmail())) {
             throw new SystemException(ErrorMessage.EMAIL_ALREADY_EXISTS);
         }
-        companyRepository.save(company);
+        return companyRepository.saveAndFlush(company);
     }
 
     @Override
@@ -60,11 +60,11 @@ public class AdminServiceImpl extends ClientService implements AdminService {
     }
 
     @Override
-    public void addCustomer(Customer customer) throws SystemException {
+    public Customer addCustomer(Customer customer) throws SystemException {
         if (customerRepository.existsByEmail(customer.getEmail())) {
             throw new SystemException(ErrorMessage.CUSTOMER_NOT_EXISTS);
         }
-        customerRepository.save(customer);
+       return customerRepository.save(customer);
     }
 
     @Override

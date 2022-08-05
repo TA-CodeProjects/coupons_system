@@ -12,14 +12,9 @@ import java.util.List;
 @RestController
 @RequestMapping("api/customer")
 @RequiredArgsConstructor
+@CrossOrigin(origins = "*")
 public class CustomerController {
-    private CustomerService customerService;
-
-//    @PostMapping("login")
-//    @ResponseStatus(HttpStatus.CREATED)
-//    public void login(@RequestBody LoginParams loginParams) throws SystemException {
-//        customerService = (CustomerService) loginManager.login(loginParams.getEmail(), loginParams.getPassword(), ClientType.Customer);
-//    }
+    private final CustomerService customerService;
 
     @PutMapping
     @ResponseStatus(HttpStatus.NO_CONTENT)

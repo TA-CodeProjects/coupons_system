@@ -24,22 +24,19 @@ public class CompanyServiceImpl extends ClientService implements CompanyService 
         this.company = company;
     }
 
-    @Override
-    public boolean login(String email, String password) {
-        return companyRepository.existsByEmailAndPassword(email, password);
-    }
 
     @Override
-    public void addCoupon(Coupon coupon) throws SystemException {
+    public Coupon addCoupon(Coupon coupon) throws SystemException {
         if (couponRepository.existsByCompanyAndTitle(company, coupon.getTitle())){
             throw new SystemException(ErrorMessage.COUPON_ALREADY_EXISTS);
         }
         coupon.setCompany(company);
-        couponRepository.save(coupon);
+        return couponRepository.save(coupon);
     }
 
     @Override
     public void updateCoupon(Coupon coupon) throws SystemException {
+        coupon.setCompany(company);
         if (!couponRepository.existsByIdAndCompany(coupon.getId(), coupon.getCompany())){
             throw new SystemException(ErrorMessage.COUPON_NOT_ALLOWED_UPDATE_COUPON_OR_COMPANY_CODE);
         }
@@ -95,4 +92,5 @@ public class CompanyServiceImpl extends ClientService implements CompanyService 
     public Company getCompanyByEmail(String email) throws SystemException {
         return companyRepository.findByEmail(email).orElseThrow(() -> new SystemException(ErrorMessage.COMPANY_NOT_EXISTS));
     }
+
 }

@@ -16,6 +16,4 @@ public abstract class ClientService {
     @Autowired
     protected CustomerRepository customerRepository;
 
-
-    public abstract boolean login(String email, String password);
 }

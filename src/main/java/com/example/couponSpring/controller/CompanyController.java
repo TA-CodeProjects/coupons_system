@@ -13,20 +13,14 @@ import java.util.List;
 @RestController
 @RequestMapping("api/company")
 @RequiredArgsConstructor
+@CrossOrigin(origins = "*")
 public class CompanyController {
     private final CompanyService companyService;
 
-//    @PostMapping("/login")
-//    @ResponseStatus(HttpStatus.CREATED)
-//    public void login(@RequestBody LoginParams loginParams) throws SystemException {
-//       companyService = (CompanyService) loginManager.login(loginParams.getEmail(), loginParams.getPassword(), ClientType.Company);
-//
-//    }
-
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public void addCoupon(@RequestBody Coupon coupon) throws SystemException {
-        companyService.addCoupon(coupon);
+    public Coupon addCoupon(@RequestBody Coupon coupon) throws SystemException {
+       return companyService.addCoupon(coupon);
     }
 
     @PutMapping("/{id}")

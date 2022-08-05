@@ -6,6 +6,7 @@ import com.example.couponSpring.exceptions.SystemException;
 import com.example.couponSpring.services.AdminService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -13,13 +14,14 @@ import java.util.List;
 @RestController
 @RequestMapping("api/admin")
 @RequiredArgsConstructor
+@CrossOrigin(origins = "*")
 public class AdminController {
     private final AdminService adminService;
 
     @PostMapping("company")
     @ResponseStatus(HttpStatus.CREATED)
-    public void addCompany(@RequestBody Company company) throws SystemException {
-        adminService.addCompany(company);
+    public Company addCompany(@RequestBody Company company) throws SystemException {
+       return adminService.addCompany(company);
     }
 
     @PutMapping("company/{id}")
@@ -46,8 +48,8 @@ public class AdminController {
 
     @PostMapping("customer")
     @ResponseStatus(HttpStatus.CREATED)
-    public void addCustomer(@RequestBody Customer customer) throws SystemException {
-        adminService.addCustomer(customer);
+    public Customer addCustomer(@RequestBody Customer customer) throws SystemException {
+       return adminService.addCustomer(customer);
     }
 
     @PutMapping("customer/{id}")

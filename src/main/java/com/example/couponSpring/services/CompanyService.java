@@ -6,12 +6,11 @@ import com.example.couponSpring.beans.Coupon;
 import com.example.couponSpring.exceptions.SystemException;
 
 import java.util.List;
+
 public interface CompanyService {
     void setCompany(Company company);
 
-    boolean login(String email, String password);
-
-    void addCoupon(Coupon coupon) throws SystemException;
+    Coupon addCoupon(Coupon coupon) throws SystemException;
 
     void updateCoupon(Coupon coupon) throws SystemException;
 
