@@ -47,37 +47,37 @@ public class Init implements CommandLineRunner {
 //                Date.valueOf(LocalDate.now()),Date.valueOf(LocalDate.now().plusDays(20)),16,60,"kisar.png");
         Coupon coupon1 = Coupon.builder().category(Category.Food).title("Busi meal deal")
                 .description("Main course + 2 extras + drink + coffe").startDate(Date.valueOf(LocalDate.now()))
-                .endDate(Date.valueOf(LocalDate.now().plusDays(10))).amount(20).price(70).image("busi.png").build();
+                .endDate(Date.valueOf(LocalDate.now().plusDays(100))).amount(20).price(70).image("busi.png").build();
         Coupon coupon2 = Coupon.builder().category(Category.Food).title("Kisar meal deal")
                 .description("Main course + 2 extras + drink + coffe").startDate(Date.valueOf(LocalDate.now()))
-                .endDate(Date.valueOf(LocalDate.now().plusDays(20))).amount(16).price(60).image("kisar.png").build();
+                .endDate(Date.valueOf(LocalDate.now().plusDays(200))).amount(16).price(60).image("kisar.png").build();
         Coupon coupon3 = Coupon.builder().category(Category.Food).title("Mutasfi meal deal")
                 .description("Main course + 2 extras + drink + coffe").startDate(Date.valueOf(LocalDate.now()))
-                .endDate(Date.valueOf(LocalDate.now().plusDays(15))).amount(18).price(50).image("mutsafi.png").build();
+                .endDate(Date.valueOf(LocalDate.now().plusDays(150))).amount(18).price(50).image("mutsafi.png").build();
         Coupon coupon4 = Coupon.builder().category(Category.Food).title("Dileks bourekas")
                 .description("Dileks bourekas with egg").startDate(Date.valueOf(LocalDate.now()))
-                .endDate(Date.valueOf(LocalDate.now().plusDays(30))).amount(10).price(20).image("dileks.png").build();
+                .endDate(Date.valueOf(LocalDate.now().plusDays(300))).amount(10).price(20).image("dileks.png").build();
         Coupon coupon5 = Coupon.builder().category(Category.Food).title("Hasaluf kobane")
                 .description("Kobane with egg and drink").startDate(Date.valueOf(LocalDate.now()))
-                .endDate(Date.valueOf(LocalDate.now().plusDays(5))).amount(5).price(25).image("hasaluf.png").build();
+                .endDate(Date.valueOf(LocalDate.now().plusDays(500))).amount(5).price(25).image("hasaluf.png").build();
         Coupon coupon6 = Coupon.builder().category(Category.Food).title("Hummus Hahagana")
                 .description("Hummus + 6 falafels + small salad").startDate(Date.valueOf(LocalDate.now()))
-                .endDate(Date.valueOf(LocalDate.now().plusDays(5))).amount(5).price(35).image("hummus_hahagana.png").build();
+                .endDate(Date.valueOf(LocalDate.now().plusDays(50))).amount(5).price(35).image("hummus_hahagana.png").build();
         Coupon coupon7 = Coupon.builder().category(Category.Desserts).title("Malbi")
                 .description("Malbi with all the extras").startDate(Date.valueOf(LocalDate.now()))
-                .endDate(Date.valueOf(LocalDate.now().plusDays(5))).amount(5).price(10).image("malbi.png").build();
+                .endDate(Date.valueOf(LocalDate.now().plusDays(50))).amount(5).price(10).image("malbi.png").build();
         Coupon coupon8 = Coupon.builder().category(Category.Beverages).title("Fresh juice")
                 .description("Fresh juice rimons or oranges or carts").startDate(Date.valueOf(LocalDate.now()))
-                .endDate(Date.valueOf(LocalDate.now().plusDays(5))).amount(5).price(10).image("rimon.png").build();
+                .endDate(Date.valueOf(LocalDate.now().plusDays(500))).amount(5).price(10).image("rimon.png").build();
         Coupon coupon9 = Coupon.builder().category(Category.Food).title("Zion sabich")
                 .description("Pita sabich + drink").startDate(Date.valueOf(LocalDate.now()))
-                .endDate(Date.valueOf(LocalDate.now().plusDays(5))).amount(23).price(20).image("zion.png").build();
+                .endDate(Date.valueOf(LocalDate.now().plusDays(50))).amount(23).price(20).image("zion.png").build();
         Coupon coupon10 = Coupon.builder().category(Category.Beverages).title("Zion sabich drink")
                 .description("Cold drink").startDate(Date.valueOf(LocalDate.now()))
-                .endDate(Date.valueOf(LocalDate.now().plusDays(5))).amount(23).price(5).image("zion.png").build();
+                .endDate(Date.valueOf(LocalDate.now().plusDays(50))).amount(23).price(5).image("zion.png").build();
         Coupon coupon11 = Coupon.builder().category(Category.Desserts).title("Zion sabich desert")
                 .description("Bavaria").startDate(Date.valueOf(LocalDate.now()))
-                .endDate(Date.valueOf(LocalDate.now().plusDays(5))).amount(23).price(8).image("zion.png").build();
+                .endDate(Date.valueOf(LocalDate.now().plusDays(50))).amount(23).price(8).image("zion.png").build();
 
         try {
 
