@@ -1,17 +1,12 @@
 package com.example.couponSpring.beans;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
-import org.springframework.beans.factory.config.BeanDefinition;
-import org.springframework.context.annotation.Scope;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -35,6 +30,5 @@ public class Company {
     @Singular
     @ToString.Exclude
     @EqualsAndHashCode.Exclude
-//    @JsonIgnore
     private Set<Coupon> coupons = new HashSet<>();
 }
