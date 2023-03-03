@@ -1,30 +1,26 @@
-# coupons_system
+# Coupon System
 
-The system acts as a micro service that implement CRUD operation.
+The Coupon System App is a web-based application that allows customers to purchase coupons and companies to create and manage their own coupons. With this app, customers can easily find and purchase coupons for various products and services, while companies can attract new customers and increase sales by offering discounts and special promotions.
 
-### The system have three type of users:
+### The system type of users:
 
-**Companies** - can create discount coupons to promote their products.
+**Companies** - Can create discount coupons to promote their products.
 
-**Customers** - the system have registered customers that can purchase coupon,
+**Customers** - The system have registered customers that can purchase coupon,
 customer limit to one kind of coupon purchase, the coupons have expired date and limited amount.
 
-**Admin** - can create companies and customers.
+**Admin** - Can create companies and customers.
 
 ### Login:
 
 Depends on the client type login the system give access to the relevant CRUD
 operations.
 
-### Main technologies:
-
-**Backend:** Spring Boot.<br/>
-- Libraries: Web, Spring-data-JPA(Hibernate), Spring-security.
-- Build tool: Maven.
-
-**Frontend:** React.
-- Libraries: Typescript, Redux, Bootstrap.
-- Build tool: npm.
-
-**Database:** MySQL.
-
+### Technologies Used:
+- Spring Framework
+- Spring Security
+- Spring-data-JPA(Hibernate)
+- React
+- TypeScript
+- Redux
+- MySql
